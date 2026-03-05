@@ -19,21 +19,21 @@ export const getCars = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getCarById = asyncHandler(async (req: Request, res: Response) => {
-    const car = await CarService.getCarById(req.params.id);
+    const car = await CarService.getCarById(req.params.id as string);
     res.status(200).json(apiResponse(car, "Car fetched successfully"));
 });
 
 export const updateCar = asyncHandler(async (req: Request, res: Response) => {
-    const car = await CarService.updateCar(req.params.id, req.body);
+    const car = await CarService.updateCar(req.params.id as string, req.body);
     res.status(200).json(apiResponse(car, "Car updated successfully"));
 });
 
 export const deleteCar = asyncHandler(async (req: Request, res: Response) => {
-    await CarService.deleteCar(req.params.id);
+    await CarService.deleteCar(req.params.id as string);
     res.status(200).json(apiResponse(null, "Car deleted successfully"));
 });
 
 export const updateStatus = asyncHandler(async (req: Request, res: Response) => {
-    const car = await CarService.updateStatus(req.params.id, req.body.status);
+    const car = await CarService.updateStatus(req.params.id as string, req.body.status);
     res.status(200).json(apiResponse(car, "Car status updated successfully"));
 });

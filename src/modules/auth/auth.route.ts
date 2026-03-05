@@ -7,8 +7,8 @@ import { authMiddleware } from "../../middleware/auth.middleware";
 
 const router = Router();
 
-router.post("/register", validate(authSchema), asyncHandler(register));
-router.post("/login", validate(authSchema), asyncHandler(login));
-router.get("/me", authMiddleware, asyncHandler(me));
+router.post("/register", validate(authSchema), register);
+router.post("/login", validate(authSchema), login);
+router.get("/me", authMiddleware, me);
 
 export default router;

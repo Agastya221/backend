@@ -6,7 +6,7 @@ export interface IVehicleLocation {
   at: Date | null;
 }
 
-export interface IVehicle extends Document {
+export interface IVehicle {
   name: string;
   brand: string;
   model: string;

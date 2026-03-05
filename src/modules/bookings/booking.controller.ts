@@ -15,7 +15,7 @@ export const createBooking = asyncHandler(async (req: Request, res: Response) =>
 });
 
 export const getBookingById = asyncHandler(async (req: Request, res: Response) => {
-  const booking = await BookingService.getBookingById(req.params.id);
+  const booking = await BookingService.getBookingById(req.params.id as string);
   res.status(200).json(apiResponse(booking, "Booking fetched"));
 });
 
@@ -25,11 +25,11 @@ export const listBookings = asyncHandler(async (req: Request, res: Response) => 
 });
 
 export const updateStatus = asyncHandler(async (req: Request, res: Response) => {
-  const booking = await BookingService.updateStatus(req.params.id, req.body.bookingStatus);
+  const booking = await BookingService.updateStatus(req.params.id as string, req.body.bookingStatus);
   res.status(200).json(apiResponse(booking, "Booking status updated"));
 });
 
 export const cancelBooking = asyncHandler(async (req: Request, res: Response) => {
-  const booking = await BookingService.cancelBooking(req.params.id);
+  const booking = await BookingService.cancelBooking(req.params.id as string);
   res.status(200).json(apiResponse(booking, "Booking cancelled"));
 });
